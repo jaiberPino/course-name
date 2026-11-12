@@ -5,9 +5,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Cgeckout
-      uses: actions/checkout@v2
-    - name: definir variable
-      uses: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
-    - name: correr script
-      run: python main.py
+      - name: Cgeckout
+        uses: actions/checkout@v2
+      - name: definir variable
+        uses: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+      - name: correr script
+        run: python main.py
