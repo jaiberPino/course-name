@@ -1,0 +1,25 @@
+on:
+  push:
+    branches:
+      - aprendiendo-github-actions
+  schedule:
+    - cron: '10 * 12 * *'
+  pull_request:
+    branches: 
+      - aprendiendo-github-actions
+jobs:
+  saludar:
+    run-on: ubuntu-latest
+
+    steps:
+      - name: Hacer el checkout
+        uses: actions/checkout@v4
+      - name: Definir variables
+        run:|
+          echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+          echo "EVENTO=${{ github.event_name }}" >> $GITHUB_ENV
+      
+      - name: Imprimir Hola Mundo
+        run: |
+          echo "¡Hola Mundo, $USERNAME!"
+          echo "Este workflow se disparó por el evento: $EVENTO"
