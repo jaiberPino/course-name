@@ -1,0 +1,16 @@
+name: hola-mundo
+run-name: aprendiendo actions!
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: definir variable
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+
+      - name: correr script
+        run: python main.py

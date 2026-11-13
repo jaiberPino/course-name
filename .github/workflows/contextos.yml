@@ -1,0 +1,16 @@
+name: contextos
+run-name: contexto1
+on: [push]
+
+jobs:
+  mostrar-contextos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar detalles del evento y del runner
+        run: |
+          echo "Workflow ejecutado por: ${{ github.actor }}"
+          echo "Rama o referencia: ${{ github.ref }}"
+          echo "Sistema operativo del runner: ${{ runner.os }}"
+          echo "Arquitectura del runner: ${{ runner.arch }}"
+
+

@@ -1,0 +1,11 @@
+name: vars
+run-ame: run vars
+on: [push]
+env:
+  plaza: "Platzi"
+jobs:
+  mostrar-nombre:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Imprimir variable de entorno
+        run: echo "${{ vars.NOMBRE}} esta haciendo un curso en ${{ env.plaza }}"
