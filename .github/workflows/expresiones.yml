@@ -1,0 +1,30 @@
+name: expresiones
+run-name: expresiones
+
+on:
+  workflow_dispatch:
+    inputs:
+      ahorro:
+        description: 'total ahorro'
+        required: true
+        type: number
+      banco:
+        description: 'banco'
+        default: 'B.Occ'
+        type: string
+      aprovado:
+        description: 'para prestamos'
+        default: true
+        type: boolean
+
+jobs:
+  calcular:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sin dinero
+        if: ${{ fromJSON(inputs.ahorro) <= 10000 }}
+        run: echo "${{ inputs.banco }} poco dinero en el banco"
+
+      - name: Evaluar prestamo
+        if: ${{ inputs.aprovado }}
+        run: echo "Puede hacer un prestamo"
